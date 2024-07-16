@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDU-AI App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EDU-AI App</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#modules" onclick="showSection('modules')">Learning Modules</a></li>
+                    <li><a href="#performance" onclick="showSection('performance')">Performance Tracker</a></li>
+                    <li><a href="#tutors" onclick="showSection('tutors')">Tutors</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section id="home">
+                <h2>Welcome to EDU-AI App</h2>
+                <p>Start your learning journey, track your performance, and connect with tutors.</p>
+                <img src="logo.png" alt="E-Tutoring App Banner">
+            </section>
+
+            <section id="modules" class="hidden">
+                <h2>Learning Modules</h2>
+                <div class="module-list">
+                    <div class="module-card">
+                        <img src="account.png" alt="Accounting">
+                        <h3>Accounting</h3>
+                        <button onclick="downloadContent('accounting')">Download</button>
+                    </div>
+                    <div class="module-card">
+                        <img src="physics.png" alt="Science">
+                        <h3>Physical Science</h3>
+                        <button onclick="downloadContent('science')">Download</button>
+                    </div>
+                    <div class="module-card">
+                        <img src="math.png" alt="Math">
+                        <h3>Mathematics</h3>
+                        <button onclick="downloadContent('math')">Download</button>
+                    </div>
+                    <div class="module-card">
+                        <img src="english.png" alt="English">
+                        <h3>English</h3>
+                        <button onclick="downloadContent('english')">Download</button>
+                    </div> 
+                </div>
+            </section>
+
+            <section id="performance" class="hidden">
+                <h2>Performance Tracker</h2>
+                <p>Your performance over time will be displayed here.</p>
+                <img src="dashboard.png" alt="Performance Chart">
+            </section>
+
+            <section id="tutors" class="hidden">
+                <h2>Our Tutors</h2>
+                <div class="tutor-list">
+                    <div class="tutor-card">
+                        <img src="about-pic.png" alt="Jane Doe">
+                        <h3>Malebaleng Madimabe</h3>
+                        <p>Subject: Math</p>
+                        <button onclick="openBookingForm('Malebaleng Madimabe', 'Math')">Book Appointment</button>
+                    </div>
+                    <div class="tutor-card">
+                        <img src="about-pic.png" alt="John Smith">
+                        <h3>Thando Mandondo</h3>
+                        <p>Subject: Physical Science</p>
+                        <button onclick="openBookingForm('Thando Mandondo', 'Physical Science')">Book Appointment</button>
+                    </div>
+                    <div class="tutor-card">
+                        <img src="about-pic.png" alt="John Smith">
+                        <h3>Nolu Maxazana</h3>
+                        <p>Subject: Life Science</p>
+                        <button onclick="openBookingForm('Nolu Maxazana', 'Life Science')">Book Appointment</button>
+                    </div>
+                    <div class="tutor-card">
+                        <img src="about-pic.png" alt="John Smith">
+                        <h3>Lethabo Kgwadi</h3>
+                        <p>Subject: Accounting</p>
+                        <button onclick="openBookingForm('Lethabo Kgwadi', 'Accounting')">Book Appointment</button>
+                    </div>
+                    <div class="tutor-card">
+                        <img src="about-pic.png" alt="John Smith">
+                        <h3>Anati Khan</h3>
+                        <p>Subject: Business Studies</p>
+                        <button onclick="openBookingForm('Anati Khan', 'Business Studies')">Book Appointment</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="booking-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingForm()">&times;</span>
+            <h2>Book Appointment</h2>
+            <form id="booking-form">
+                <label for="tutor-name">Tutor:</label>
+                <input type="text" id="tutor-name" name="tutor-name" readonly>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" readonly>
+                <label for="student-name">Your Name:</label>
+                <input type="text" id="student-name" name="student-name" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+                <button type="submit">Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
