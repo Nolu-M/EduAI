@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeProfile = document.getElementById('close-profile');
     const dashboard = document.getElementById('dashboard');
 
+
     loginBtn.addEventListener('click', () => {
         loginModal.style.display = 'block';
     });
@@ -135,3 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
         profileModal.style.display = 'none';
     });
 });
+
+
+//change naybar styles on scroll
+
+window.addEventListener('scroll', () =>{
+    document.querySelector('nav').classList.toggle
+    ('window-scroll',window.scrollY > 0)
+})

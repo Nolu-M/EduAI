@@ -1,0 +1,52 @@
+.about__achievements{
+    margin-top: 3rem;
+}
+
+.about__achievements_container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+}
+
+.about__achievements_right > p{
+    margin: 1.6rem 0 2.5rem;
+}
+
+
+.Personalized_Achievement_Badges{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.Personalized_Achievement_Icon{
+    background: var(--second-color);
+    padding: 1.6rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: var(--transition);
+
+}
+.Personalized_Achievement_Icon:hover{
+    background: var(--color-bg2);
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+.Personalized_Achievement_Badge{
+    background: var(--color-primary);
+    padding: 0.6rem;
+    border-radius: 1rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.Personalized_Achievement_Icon:nth-child(2) .Personalized_Achievement_Badge{
+    background: var(--color-bg4);
+
+}
+
+.Personalized_Achievement_Icon:nth-child(3) .Personalized_Achievement_Badge{
+    background: var(--color-danger);
+
+}

@@ -21,6 +21,9 @@
     --color-bg: #1f2641;
     --color-danger: #F1484E;
 
+    --color-bg4: #888;
+    --color-bg5: #fefefe;
+
     /* --big-font: 3.8rem;
     --h2-font: 2.6rem;
     --p-font: 1.1rem; */
@@ -128,7 +131,7 @@ nav{
 /* change naybar styles*/
 
 .window-scroll{
-    background: var(--second-color);
+    background: var(--color-primary);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
@@ -240,8 +243,8 @@ header{
 
 /* features */
 .features{
-    background: var(--color-bg1);
-    height: 15rem;
+    background: var(--color-bg2);
+    height: 18rem;
 }
 
 .features h1{
@@ -250,27 +253,78 @@ header{
 }
 .features__container{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 30% 30% ;
     gap: 4rem;
 }
-.featuers__left{
+.features__left{
     margin: 1rem 0 3rem;
 }
 
 .features__right{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    gap: 0rem;
 }
 
 .features{
     background: var(--second-color);
     padding: 2rem;
-    border-radius: 2rem;
-    transition: var(--transition)
+    border-radius: 3rem;
+    transition: var(--transition);
 }
 .features:hover{
     box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.features:nth-child(2) .features__icon{
+    background: var(--color-bg4);
+
+}
+.features:nth-child(3) .features__icon{
+    background: var(--color-danger);
+
+}
+.features:nth-child(4) .features__icon{
+    background: var(--color-primary);
+
+}
+.features:nth-child(5) .features__icon{
+    background: var(--color-bg4);
+
+}
+.features:nth-child(6) .features__icon{
+    background: var(--color-danger);
+
+}.features:nth-child(7) .features__icon{
+    background: var(--color-primary);
+
+}
+.features:nth-child(8) .features__icon{
+    background: var(--color-bg4);
+
+}
+.features:nth-child(9) .features__icon{
+    background: var(--color-danger);
+
+}.features:nth-child(10) .features__icon{
+    background: var(--color-primary);
+
+}
+
+.features__icon{
+    background: var(--color-primary);
+    padding: 0.7rem;
+    border-radius: 0.9rem;
+
+}
+
+.features h5{
+    margin: 2rem 0 1rem;
+}
+
+.features p{
+    font-size: 0.85rem;
 }
 
 
@@ -284,6 +338,7 @@ header{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    
 }
 
 .faq{
@@ -294,6 +349,7 @@ header{
     height: fit-content;
     background-color: var(--second-color);
     cursor: pointer;
+    
 }
 
 .faq h4{
