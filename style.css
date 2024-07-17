@@ -95,8 +95,8 @@ img{
 }
 .btn:hover{
     background: transparent;
-    color: var(--color-white);
-    border-color: var(--color-white);
+    color: var(--second-color);
+    border-color: var(--second-color);
 }
 
 .btn{
@@ -231,8 +231,14 @@ header{
     margin-bottom: 15px;
 }
 
+.modal form input{
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+
 .modal form button {
-    align-self: flex-end;
+    align-self: center;
+    width: 100%;
 }
 
 .modal form a {
