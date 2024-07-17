@@ -372,7 +372,7 @@ header{
     display: block;
 }
 #login-form, #register-form {
-    display: flex;
+    display: grid;
     flex-direction: column;
 }
 #login-form input, #register-form input, #register-form select, #register-form button {
