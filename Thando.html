@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDU AI Website</title>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!---header---->
+  <nav>
+    <div class="container nav__container">
+      <a href="Thando.html"><h4>EDU AI</h4></a>
+      <ul class="nav__menu">
+        <li><a href="Thando.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="become-a-tutor.html">Become a Tutor</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="#" id="login-btn">Log in</a></li>
+        <li><a href="#" id="register-btn" class="btn">Register</a></li>
+      </ul>
+      <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+      <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+    </div>
+  </nav>
+<!--end-->
+
+ <!-- Login Modal -->
+ <div id="login-modal" class="modal">
+  <div class="modal-content">
+      <span class="close-btn" id="close-login">&times;</span>
+      <form id="login-form">
+          <label for="login-username">Email, Username, or Phone Number:</label>
+          <input type="text" id="login-username" required>
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <a href="#" id="forgot-password">Forgot Password?</a>
+      </form>
+  </div>
+</div>
+
+
+
+
+
+   
+    <!-- Registration Modal -->
+    <div id="register-modal" class="modal">
+      <div class="modal-content">
+          <span class="close-btn" id="close-register">&times;</span>
+          <form id="register-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" required>
+              <label for="surname">Surname:</label>
+              <input type="text" id="surname" required>
+              <label for="username">Username:</label>
+              <input type="text" id="username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" minlength="6" title="Must contain at least one number and one letter, and at least 6 or more characters" required>
+              <small>Username must contain at have at least 6 character.
+                Must contain special characters.
+              </small>
+              <label for="birthdate">Birthdate:</label>
+              <input type="date" id="birthdate" required>
+              <label for="grade">Grade:</label>
+              <select id="grade" required>
+                  <option value="" disabled selected>Select your grade</option>
+                  <option value="8">Grade 8</option>
+                  <option value="9">Grade 9</option>
+                  <option value="10">Grade 10</option>
+                  <option value="11">Grade 11</option>
+                  <option value="12">Grade 12</option>
+              </select>
+              <label for="country">Country:</label>
+              <select id="country" required>
+                  <option value="" disabled selected>Select your country</option>
+                  <option value="us">United States</option>
+                  <option value="za">South Africa</option>
+                  <option value="ng">Nigeria</option>
+                  <option value="sz">Swati</option>
+                  <option value="cn">China</option>
+                  <option value="uk">United Kingdom</option>
+              </select>
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" required>
+              <label for="email">Email:</label>
+              <input type="email" id="email" required>
+              <label for="password">Password:</label>
+              <input type="password" id="password" required>
+              <small>Password must have a minimum of 6 charcaters.
+                Must contain special characters.
+              </small>
+              <label for="confirm-password">Confirm Password:</label>
+              <input type="password" id="confirm-password" required>
+              <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+      </div>
+  </div>
+
+
+<header>
+  <div class="container header__container">
+    <div class="header__left">
+      <h1>Empowering Every Student Everywhere</h1>
+      <p>
+        EDU AI is an application designed to revolutionize education. EDU AI aims to develop an innovative educational platform tailored to address
+        the sustainable development goal of quality education and the unique challenges faced by high school students in remote and underserved areas.
+      </p>
+      <a href="courses.html" class="btn btn-primary">Get Started</a>
+    </div>
+    <div class="header__right">
+      <div class="header_right-image">
+        <img src="./home/HomeImageDesign2.png">
+      </div>
+    </div>
+  </div> 
+</header>
+
+<section class="Features">
+  <div class="container features__container">
+    <div class="features__left">
+      <h1>Features</h1>
+      <p>
+        EDU AI is is dedicated to transform remote education with innovative and intelligent solutions designed to meet the unique need of high school students. Our platform harnesses the power 
+        of advanced AI technology to create a personalized, engaging, and effective learning experience. Explore the features that set EDU AI apart and discover how we can help you achieve your academic goals.
+      </p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+    
+   
+
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-book-reader"></i></span>
+          <h5>Personlized Learning Plans</h5>
+          <p>
+            EDU AI creates customized learning plans tailored to each student's unique needs and learning pace. By analyzing individual strengths and weaknesses, 
+            the platform generates targeted study paths that helps students focus on areas requiring improvement while reinforcing their existing knowledge
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-presentation-check"></i></span>
+          <h5>Interactive Lessons</h5>
+          <p>
+            Engage students with interactive and multimedia-rich lessons that make learning fun and effective. EDU AI offers a variety of content formats, including videos, quizzes,
+            and interactive simulations, designed to cater to different learning styles and keep students actively involved in their education.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-presentation-edit"></i></span>
+          <h5>AI-Driven Tutoring</h5>
+          <p>
+            Experience the benefits of AI-powered tutoring that provides instant feedback and support. EDU AI's intelligent tutoring system can answer questions, explain concepts, and guide students through challenging topics, 
+            ensuring they receive the help they need whenever they need it.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-award"></i></span>
+          <h5>Progress Tracking</h5>
+          <p>
+            Keep track of academic progress with detailed performance reports and analytics. EDU AI monitors student achievements, identifies trends, 
+            and provides insights into areas of strength and improvement, 
+            helping students, teachers, and parents stay informed about academic growth.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-book-open"></i></span>
+          <h5>Subject Resources</h5>
+          <p>
+            Access a comprehensive library of resources across various subjects, including Mathematics, Science, English, Social Studies, Foreign Languages, and more. 
+            EDU AI offers study guides, practice tests, video tutorials, e-books, and other valuable materials to support student learning.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-chat-bubble-user"></i></span>
+          <h5>Collaboration Tools</h5>
+          <p>
+            Enhance the learning experience with collaboration tools that allow students to work together on projects, share ideas, and communicate with peers and teachers. 
+            EDU AI fosters a collaborative learning environment where students can engage in group activities and discussions.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-eye"></i></span>
+          <h5>Parental Involvement Features</h5>
+          <p>
+            Empower parents to stay involved in their child's education with tools that allow them to monitor progress, 
+            set goals, and communicate with teachers. EDU AI provides parents with insights and resources to support their child's learning journey effectively.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-users-alt"></i></span>
+          <h5>Tutor resources</h5>
+          <p>
+            Support teachers with a variety of resources designed to enhance classroom instruction and management. 
+            EDU AI offers lesson planning tools, professional development materials, and access to a community of educators for sharing best practices and ideas.
+          </p>
+        </article>
+
+        <article class="features">
+          <span class="features__icon"><i class="uil uil-game-structure"></i></span>
+          <h5>Gamified Learning</h5>
+          <p>
+            Increase student engagement through gamified learning experiences that make education enjoyable and rewarding. 
+            EDU AI incorporates game-based elements such as badges, leaderboards, and challenges to motivate students and encourage active participation.
+          </p>
+        </article>
+
+
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="faqs">
+  <h2>Frequently Asked Questions</h2>
+  <div class="container faqs__container">
+    <article class="faq">
+      <div class="faq__icon"><i class="uil uil-plus"></i></div>
+      <div class="question__answer">
+        <h4>What is EDU AI?</h4>
+        <p>
+          EDU AI is a platform designed to enhance remote learning experiences for high school students using advanced AI technology.
+        </p>
+      </div>
+    </article>
+    <article class="faq">
+      <div class="faq__icon"><i class="uil uil-plus"></i></div>
+      <div class="question__answer">
+        <h4>How can EDU AI help me with my studies?</h4>
+        <p>
+          EDU AI offers personalized learning resources, interactive tutorials, and AI-powered tools to support your academic journey and help you succeed in your studies.
+        </p>
+      </div>
+    </article>
+    <article class="faq">
+      <div class="faq__icon"><i class="uil uil-plus"></i></div>
+      <div class="question__answer">
+        <h4>Who can use EDU AI?</h4>
+        <p>
+          EDU AI is designed for high school students, teachers, and parents who are looking for effective solutions to improve remote learning.
+        </p>
+      </div>
+    </article>
+    <article class="faq">
+      <div class="faq__icon"><i class="uil uil-plus"></i></div>
+      <div class="question__answer">
+        <h4>What features does EDU AI offer?</h4>
+        <p>
+          EDU AI provides personalized learning plans, interactive lessons, AI-driven tutoring, progress tracking, and resources for various subjects.
+        </p>
+      </div>
+    </article>
+    <article class="faq">
+      <div class="faq__icon"><i class="uil uil-plus"></i></div>
+      <div class="question__answer">
+        <h4>How does EDU AI personalize my learning experience?</h4>
+        <p>
+          Our AI analyzes your strengths, weaknesses, and learning patterns to create customized study plans and recommend resources tailored to your needs.
+        </p>
+      </div>
+    </article>
+    <article class="faq">
+      <div class="faq__icon"></div>
+      <div class="question__answer">
+        <h4>Is EDU AI compatible with different devices?</h4>
+        <p>
+          Yes, EDU AI is accessible on computers, tablets, and smartphones, making it easy to learn from anywhere.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <footer>
+  <div class="container footer__container">
+    <div class="footer__about">
+      <a href="Thando.html" class="footer__logo"><h4>EDU AI</h4></a>
+      <p>
+        EDU AI is dedicated to revolutionizing remote learning 
+        for high school students using cutting-edge AI technology.
+      </p>
+    </div>
+
+    <div class="footer__links">
+      <h4>Permalinks</h4>
+      <ul class="permalinks">
+        <li><a href="Thando.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="faq.html">FAQS</a></li>
+        <li><a href="Contact us">Contact Us</a></li>
+        
+      </ul>
+  </div>
+
+  <div class="footer privacy">
+    <h4>Privacy</h4>
+    <ul class="privacy">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms and Condition</a></li>
+      
+    </ul>
+  </div>
+
+  <div class="footer__contact">
+    <h4>Contact Us</h4>
+    <p>lethabokwadi@gmail.com
+      molebalengmadimabe@gmail.com
+      thandomandondo1909@gmail
+      nolubabalomaxazana@gmail.com
+    </p>
+    </div>
+
+      
+      <ul class="footer__socials">
+       
+        <li>
+          <a href="#"><i class="uil uil-facebook-f"></i></a>
+
+        </li>
+        <li>
+          <a href="#"><i class="uil uil-instagram-alt"></i></a>
+            
+        </li>
+        <li>
+          <a href="#"><i class="uil uil-twitter"></i></a>
+            
+        </li>
+        <li>
+          <a href="#"><i class="uil uil-linkedin-alt"></i></a>
+            
+        </li>
+      </ul>
+
+      </div>
+ 
+
+    <div class="footer__copyright">
+      <small>Copyright &copy; EDU AI </small>
+    </div>
+</div>
+</footer>
+
+ <!-- Profile Modal -->
+ <div id="profile-modal" class="modal">
+  <div class="modal-content">
+      <span class="close-btn" id="close-profile">&times;</span>
+      <form id="profile-form">
+          <label for="profile-name">Name:</label>
+          <input type="text" id="profile-name" required>
+          <label for="profile-surname">Surname:</label>
+          <input type="text" id="profile-surname" required>
+          <label for="profile-username">Username:</label>
+          <input type="text" id="profile-username" required>
+          <label for="profile-birthdate">Birthdate:</label>
+          <input type="date" id="profile-birthdate" required>
+          <label for="profile-grade">Grade:</label>
+          <select id="profile-grade" required>
+              <option value="" disabled selected>Select your grade</option>
+              <option value="8">Grade 8</option>
+              <option value="9">Grade 9</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+          </select>
+          <label for="profile-country">Country:</label>
+          <select id="profile-country" required>
+              <option value="" disabled selected>Select your country</option>
+              <option value="us">United States</option>
+              <option value="za">South Africa</option>
+              <option value="ng">Nigeria</option>
+              <option value="sz">Swati</option>
+              <option value="cn">China</option>
+              <option value="uk">United Kingdom</option>
+          </select>
+          <label for="profile-phone">Phone Number:</label>
+          <input type="tel" id="profile-phone" required>
+          <label for="profile-email">Email:</label>
+          <input type="email" id="profile-email" required>
+          <label for="profile-password">Password:</label>
+          <input type="password" id="profile-password" required>
+          <label for="profile-confirm-password">Confirm Password:</label>
+          <input type="password" id="profile-confirm-password" required>
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+      </form>
+  </div>
+</div>
+
+<!-- Dashboard Section -->
+<section id="dashboard" style="display:none;">
+<div class="container">
+    <h2>Welcome to your Dashboard</h2>
+    <p>Here you can find your courses, resources, and other important information.</p>
+    <!-- Add dashboard content here -->
+</div>
+
+
+<!-- Custom JS Link -->
+<script src="main.js"></script>
+
+
+</body>
+</html>
