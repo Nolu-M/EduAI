@@ -500,6 +500,60 @@ footer ul li a:hover{
     padding: 1.2rem 0;
     border-top: 1px solid var(--color-bg2);
 }
+/* chatbot.css */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#chatbot-header {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#chatbot-body {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#chatbot-messages {
+    margin-bottom: 10px;
+    /* Style your chat messages container */
+}
+
+#chatbot-input {
+    width: calc(100% - 60px);
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#chatbot-body button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chatbot-body button:hover {
+    background-color: #0056b3;
+}
+
 
 
 /* .form-box{

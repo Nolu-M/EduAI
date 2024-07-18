@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 
 <body>
@@ -31,6 +32,14 @@
       <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
     </div>
   </nav>
+  <div id="chatbot-container">
+    <div id="chatbot-header" onclick="toggleChatbot()">Chat with EduAI</div>
+    <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Ask a question...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
 <!--end-->
 
  <!-- Login Modal -->
@@ -133,6 +142,8 @@
       </p>
       <a href="#" class="btn">Learn More</a>
     </div>
+
+
     
    
 
@@ -465,6 +476,8 @@
 
 <!-- Custom JS Link -->
 <script src="main.js"></script>
+<script src="botscript.js"></script>
+
 
 
 </body>
