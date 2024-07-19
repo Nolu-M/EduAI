@@ -22,6 +22,16 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container">
+    <div id="chatbot-header" onclick="toggleChatbot()">Chat with EduAI</div>
+    <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Ask a question...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
 <!--end-->
     <div class="container">
         <main id="main-content">
@@ -150,7 +160,10 @@
         </div>
         </div>
     </footer>
-    
+    <!-- Custom JS Link -->
+    <script src="main.js"></script>
+    <script src="server.js"></script>
+    <script src="botscript.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
