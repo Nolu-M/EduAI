@@ -1,30 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            showSection(event.target.getAttribute('href').substring(1));
-        });
-    });
-
-    document.getElementById('chatbot-body').style.display = 'none'; // Initially hide chatbot body
-});
-
-function showSection(sectionId) {
-    document.querySelectorAll('main section').forEach(section => {
-        section.classList.add('hidden');
-    });
-    document.getElementById(sectionId).classList.remove('hidden');
-}
-
-function toggleChatbot() {
-    const chatbotBody = document.getElementById('chatbot-body');
-    if (chatbotBody.style.display === 'none') {
-        chatbotBody.style.display = 'block';
-    } else {       
-        chatbotBody.style.display = 'none';
-    }
-}
-
 function sendMessage() {
     const input = document.getElementById('chatbot-input');
     const message = input.value;
@@ -40,7 +13,7 @@ function sendMessage() {
 
     console.log("Sending message:", message); // Debugging log
 
-    fetch('chatbot.php', {
+    fetch('http://localhost:3000/chatbot', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,8 +21,11 @@ function sendMessage() {
         body: JSON.stringify({ message: message })
     })
     .then(response => {
+        console.log('Response status:', response.status); // Log status code
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            return response.text().then(text => {
+                throw new Error(`Network response was not ok: ${text}`);
+            });
         }
         return response.json();
     })
@@ -64,8 +40,7 @@ function sendMessage() {
         console.error('There was a problem with the fetch operation:', error); // Debugging log
         const errorMessage = document.createElement('div');
         errorMessage.className = 'bot-message';
-        errorMessage.textContent = 'Error: ' + error;
+        errorMessage.textContent = 'Error: ' + error.message;
         messageContainer.appendChild(errorMessage);
     });
 }
- 
