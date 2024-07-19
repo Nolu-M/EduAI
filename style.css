@@ -350,7 +350,7 @@ small {
 }
 
 .features p{
-    font-size: 0.85rem;
+    font-size: 0.80rem;
 }
 
 
@@ -539,6 +539,7 @@ footer ul li a:hover{
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 #chatbot-body button {

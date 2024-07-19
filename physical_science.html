@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Science Topics</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <!---header---->
+  <nav>
+    <div class="container nav__container">
+      <a href="Thando.html"><h4>EDU AI</h4></a>
+      <ul class="nav__menu">
+        <li><a href="Thando.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="dashboard.html">Performance tracker</a></li>
+        <li><a href="./Thando.html" id="login-btn">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+<!--end-->
+
+<section id="topics">
+    <h2>Physical Science Topics</h2>
+    <div class="topic-list">
+        <div class="topic-card">
+            <h3>Energy</h3>
+            <button onclick="readMore('energy')">Read More</button>
+            <button onclick="downloadContent('energy')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Motion</h3>
+            <button onclick="readMore('motion')">Read More</button>
+            <button onclick="downloadContent('motion')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Waves</h3>
+            <button onclick="readMore('waves')">Read More</button>
+            <button onclick="downloadContent('waves')">Download</button>
+        </div>
+    </div>
+</section>
+
+<section id="energy" class="hidden topic-details">
+    <h2>Energy</h2>
+    <p>Energy is the ability to do work. It comes in various forms, including kinetic energy, potential energy, thermal energy, electrical energy, and more. Understanding energy and its transformations is essential in physics.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="motion" class="hidden topic-details">
+    <h2>Motion</h2>
+    <p>Motion refers to the change in position of an object over time. It can be described in terms of displacement, distance, velocity, acceleration, and time. The study of motion is fundamental in physics.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="waves" class="hidden topic-details">
+    <h2>Waves</h2>
+    <p>Waves are disturbances that transfer energy from one place to another. They can be mechanical, like sound waves, or electromagnetic, like light waves. Understanding waves and their properties is crucial in various fields of science.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Topics</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <!---header---->
+  <nav>
+    <div class="container nav__container">
+      <a href="Thando.html"><h4>EDU AI</h4></a>
+      <ul class="nav__menu">
+        <li><a href="Thando.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="dashboard.html">Performance tracker</a></li>
+        <li><a href="./Thando.html" id="login-btn">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+<!--end-->
+
+<section id="topics">
+    <h2>Accounting Topics</h2>
+    <div class="topic-list">
+        <div class="topic-card">
+            <h3>Financial Accounting</h3>
+            <button onclick="readMore('financial-accounting')">Read More</button>
+            <button onclick="downloadContent('financial-accounting')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Managerial Accounting</h3>
+            <button onclick="readMore('managerial-accounting')">Read More</button>
+            <button onclick="downloadContent('managerial-accounting')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Tax</br> Accounting</h3>
+            <button onclick="readMore('tax-accounting')">Read More</button>
+            <button onclick="downloadContent('tax-accounting')">Download</button>
+        </div>
+    </div>
+</section>
+
+<section id="financial-accounting" class="hidden topic-details">
+    <h2>Financial Accounting</h2>
+    <p>Financial accounting involves the process of preparing financial statements for external use. These statements include the balance sheet, income statement, and cash flow statement, which provide a comprehensive overview of a company's financial performance and position.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="managerial-accounting" class="hidden topic-details">
+    <h2>Managerial Accounting</h2>
+    <p>Managerial accounting focuses on providing financial information for internal use by management. This includes budgeting, forecasting, and various financial analyses to aid in decision-making processes.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="tax-accounting" class="hidden topic-details">
+    <h2>Tax Accounting</h2>
+    <p>Tax accounting involves the preparation of tax returns and planning for future tax obligations. It includes understanding tax regulations, ensuring compliance, and optimizing tax strategies to minimize liabilities.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

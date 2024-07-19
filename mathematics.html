@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Topics</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <nav>
+    <div class="container nav__container">
+      <a href="Thando.html"><h4>EDU AI</h4></a>
+      <ul class="nav__menu">
+        <li><a href="Thando.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="dashboard.html">Performance tracker</a></li>
+        <li><a href="./Thando.html" id="login-btn">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<section id="topics" class="topic">
+    <h2>Mathematics Topics</h2>
+    <div class="topic-list">
+        <div class="topic-card">
+            <h3>Algebra</h3>
+            <button onclick="readMore('algebra')">Read More</button>
+            <button onclick="downloadContent('algebra')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Calculus</h3>
+            <button onclick="readMore('calculus')">Read More</button>
+            <button onclick="downloadContent('calculus')">Download</button>
+        </div>
+        <div class="topic-card">
+            <h3>Geometry</h3>
+            <button onclick="readMore('geometry')">Read More</button>
+            <button onclick="downloadContent('geometry')">Download</button>
+        </div>
+    </div>
+</section>
+
+<section id="algebra" class="hidden topic-details">
+    <h2>Algebra</h2>
+    <p>Algebra is a branch of mathematics that deals with symbols and the rules for manipulating those symbols. It is about finding the unknown or putting real-life variables into equations and then solving them.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="calculus" class="hidden topic-details">
+    <h2>Calculus</h2>
+    <p>Calculus is the branch of mathematics that studies continuous change. It is divided into differential calculus and integral calculus, both of which have wide applications in science and engineering.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<section id="geometry" class="hidden topic-details">
+    <h2>Geometry</h2>
+    <p>Geometry is the branch of mathematics concerned with the properties and relations of points, lines, surfaces, and solids. It involves studying shapes, sizes, and the properties of space.</p>
+    <button onclick="goBack()">Go Back</button>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

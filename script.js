@@ -1,9 +1,16 @@
+// script.js
+
 function showSection(sectionId) {
-    const sections = document.querySelectorAll('main section');
+    const sections = document.querySelectorAll('main section, section.hidden');
     sections.forEach(section => {
         section.classList.add('hidden');
+        section.style.display = 'none';
     });
-    document.getElementById(sectionId).classList.remove('hidden');
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.classList.remove('hidden');
+        sectionToShow.style.display = 'block';
+    }
 }
 
 function downloadContent(subject) {
@@ -26,6 +33,25 @@ document.getElementById('booking-form').addEventListener('submit', function(even
     closeBookingForm();
 });
 
+function readMore(topic) {
+    // Hide all topic sections
+    document.querySelectorAll('section.hidden').forEach(section => {
+        section.style.display = 'none';
+    });
 
+    // Show the selected topic section
+    document.getElementById(topic).style.display = 'block';
 
-                                                                                                      
+    // Hide the main topics section
+    document.getElementById('topics').style.display = 'none';
+}
+
+function goBack() {
+    // Hide all topic sections
+    document.querySelectorAll('section.hidden').forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Show the main topics section
+    document.getElementById('topics').style.display = 'block';
+}
