@@ -11,12 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeProfile = document.getElementById('close-profile');
     const dashboard = document.getElementById('dashboard');
 
+    // Hide both modals initially
+    loginModal.style.display = 'none';
+    registerModal.style.display = 'none';
 
     loginBtn.addEventListener('click', () => {
+        // Hide the registration modal if it's open
+        if (registerModal.style.display === 'block') {
+            registerModal.style.display = 'none';
+        }
         loginModal.style.display = 'block';
     });
 
     registerBtn.addEventListener('click', () => {
+        // Hide the login modal if it's open
+        if (loginModal.style.display === 'block') {
+            loginModal.style.display = 'none';
+        }
         registerModal.style.display = 'block';
     });
 
