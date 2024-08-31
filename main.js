@@ -172,3 +172,79 @@ faqs.forEach(faq =>{
         }
     })
 })
+
+// JavaScript to handle modal interactions 
+document.addEventListener('DOMContentLoaded', () => {
+    const tutorBtn = document.getElementById('login-tutor-btn');
+    const studentBtn = document.getElementById('register-student-btn');
+    const loginModal = document.getElementById('login-modal');
+    const tutorRegisterModal = document.getElementById('register-tutor-modal');
+    const studentRegisterModal = document.getElementById('register-student-modal');
+    const closeLogin = document.getElementById('close-login');
+    const closeTutorRegister = document.getElementById('close-register-tutor');
+    const closeStudentRegister = document.getElementById('close-register-student');
+    const registerLink = document.getElementById('register-link');
+    const registerBtn = document.getElementById('register-btn'); // New Register button reference
+
+    let currentRole = ''; // Track current role (tutor or student)
+
+    // Display login modal and set registration type for Tutor
+    tutorBtn.onclick = () => {
+        currentRole = 'tutor'; // Set role to tutor
+        loginModal.style.display = 'block';
+        registerLink.innerHTML = '<a href="#" id="register-tutor-link">Not registered? Sign up as a Tutor</a>';
+
+        // Use setTimeout to ensure the DOM is updated before attaching event
+        setTimeout(() => {
+            const registerTutorLink = document.getElementById('register-tutor-link');
+            if (registerTutorLink) {
+                registerTutorLink.onclick = (event) => {
+                    event.preventDefault();
+                    loginModal.style.display = 'none';
+                    tutorRegisterModal.style.display = 'block';
+                };
+            }
+        }, 0);
+    };
+
+    // Display login modal and set registration type for Student
+    studentBtn.onclick = () => {
+        currentRole = 'student'; // Set role to student
+        loginModal.style.display = 'block';
+        registerLink.innerHTML = '<a href="#" id="register-student-link">Not registered? Sign up as a Student</a>';
+
+        // Use setTimeout to ensure the DOM is updated before attaching event
+        setTimeout(() => {
+            const registerStudentLink = document.getElementById('register-student-link');
+            if (registerStudentLink) {
+                registerStudentLink.onclick = (event) => {
+                    event.preventDefault();
+                    loginModal.style.display = 'none';
+                    studentRegisterModal.style.display = 'block';
+                };
+            }
+        }, 0);
+    };
+
+    // Handle "Register" button inside the login modal
+    registerBtn.onclick = () => {
+        loginModal.style.display = 'none'; // Close login modal
+        if (currentRole === 'tutor') {
+            tutorRegisterModal.style.display = 'block'; // Open tutor registration modal
+        } else if (currentRole === 'student') {
+            studentRegisterModal.style.display = 'block'; // Open student registration modal
+        }
+    };
+
+    // Close modals
+    closeLogin.onclick = () => { loginModal.style.display = 'none'; };
+    closeTutorRegister.onclick = () => { tutorRegisterModal.style.display = 'none'; };
+    closeStudentRegister.onclick = () => { studentRegisterModal.style.display = 'none'; };
+
+    // Close modal when clicking outside
+    window.onclick = (event) => {
+        if (event.target === loginModal) loginModal.style.display = 'none';
+        if (event.target === tutorRegisterModal) tutorRegisterModal.style.display = 'none';
+        if (event.target === studentRegisterModal) studentRegisterModal.style.display = 'none';
+    };
+});

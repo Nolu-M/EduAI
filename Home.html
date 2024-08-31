@@ -20,9 +20,9 @@
     <div class="container nav__container">
       <a href="Home.html"><h4>EDU AI</h4></a>
       <ul class="nav__menu">
-        <li><a href="about-us.html">About us</a></li>
-        <li><a href="#" id="login-btn" class="btn">Become a Tutor</a></li>
-        <li><a href="#" id="register-btn" class="btn">Students</a></li>
+        <li><a href="#features">About us</a></li>
+        <li><a href="#" id="login-tutor-btn" class="btn">Become a Tutor</a></li>
+        <li><a href="#" id="register-student-btn" class="btn">Students</a></li>
         <!-- Language -->
         <li>
           <select id="language-selector" onchange="changeLanguage(this.value)">
@@ -60,79 +60,114 @@
 
 
 
- <!-- Login Modal -->
- <div id="login-modal" class="modal">
+<!-- Login Modal for both Tutors and Students -->
+<div id="login-modal" class="modal">
   <div class="modal-content">
-      <span class="close-btn" id="close-login">&times;</span>
-      <form id="login-form">
-          <label for="login-username">Email, Username, or Phone Number:</label>
-          <input type="text" id="login-username" required>
-          <label for="login-password">Password:</label>
-          <input type="password" id="login-password" required>
-          <button type="submit" class="btn btn-primary">Login</button>
-          <button type="submit" class="btn btn-primary">Register</button>
-          <a href="#" id="forgot-password">Forgot Password?</a>
-      </form>
+    <span class="close-btn" id="close-login">&times;</span>
+    <form id="login-form">
+      <label for="login-username">Email, Username, or Phone Number:</label>
+      <input type="text" id="login-username" required>
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" required>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="button" id="register-btn" class="btn btn-primary">Register</button>
+      <a href="#" id="forgot-password">Forgot Password?</a>
+    </form>
   </div>
 </div>
 
-
-
+  <!-- Registration Modal for Tutors -->
+  <div id="register-tutor-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-register-tutor">&times;</span>
+      <form id="register-tutor-form">
+        <h2>Tutor Registration</h2>
+        <!-- Tutor-specific fields -->
+        <label for="tutor-name">Name:</label>
+        <input type="text" id="tutor-name" required>
+        <label for="tutor-surname">Surname:</label>
+        <input type="text" id="tutor-surname" required>
+        <label for="tutor-qualification">Qualification:</label>
+        <input type="text" id="tutor-qualification" required>
+        <label for="tutor-experience">Experience:</label>
+        <input type="text" id="tutor-experience" required>
+        <!-- Common fields -->
+        <label for="tutor-email">Email:</label>
+        <input type="email" id="tutor-email" required>
+        <label for="tutor-password">Password:</label>
+        <input type="password" id="tutor-password" required>
+        <label for="tutor-confirm-password">Confirm Password:</label>
+        <input type="password" id="tutor-confirm-password" required>
+        <button type="submit" class="btn btn-primary">Register as Tutor</button>
+      </form>
+    </div>
+  </div>
 
 
    
-    <!-- Registration Modal -->
-    <div id="register-modal" class="modal">
+    <!-- Registration Modal for Students -->
+    <div id="register-student-modal" class="modal">
       <div class="modal-content">
-          <span class="close-btn" id="close-register">&times;</span>
-          <form id="register-form">
-              <label for="name">Name:</label>
-              <input type="text" id="name" required>
-              <label for="surname">Surname:</label>
-              <input type="text" id="surname" required>
-              <label for="username">Username:</label>
-              <input type="text" id="username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" minlength="6" title="Must contain at least one number and one letter, and at least 6 or more characters" required>
-              <small>Username must contain at have at least 6 character.
-                Must contain special characters.
-              </small>
-              <label for="birthdate">Birthdate:</label>
-              <input type="date" id="birthdate" required>
-              <label for="grade">Grade:</label>
-              <select id="grade" required>
-                  <option value="" disabled selected>Select your grade</option>
-                  <option value="8">Grade 8</option>
-                  <option value="9">Grade 9</option>
-                  <option value="10">Grade 10</option>
-                  <option value="11">Grade 11</option>
-                  <option value="12">Grade 12</option>
-              </select>
-              <label for="country">Country:</label>
-              <select id="country" required>
-                  <option value="" disabled selected>Select your country</option>
-                  <option value="us">United States</option>
-                  <option value="za">South Africa</option>
-                  <option value="ng">Nigeria</option>
-                  <option value="sz">Swati</option>
-                  <option value="cn">China</option>
-                  <option value="uk">United Kingdom</option>
-              </select>
-              <label for="phone">Phone Number:</label>
-              <input type="tel" id="phone" required>
-              <label for="email">Email:</label>
-              <input type="email" id="email" required>
-              <small>Password must have a minimum of 6 charcaters.
-                Must contain special characters.
-              </small>
-              <label for="password">Password:</label>
-              <input type="password" id="password" required>
-              <label for="confirm-password">Confirm Password:</label>
-              <input type="password" id="confirm-password" required>
-              <button type="submit" class="btn btn-primary">Register</button>
-              <button type="submit" class="btn btn-primary">Login</button>
-          </form>
+        <span class="close-btn" id="close-register-student">&times;</span>
+        <form id="register-form">
+          <h2>Student Registration</h2>
+    
+          <!-- Student-specific fields -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+    
+          <label for="surname">Surname:</label>
+          <input type="text" id="surname" required>
+    
+          <label for="username">Username:</label>
+          <input type="text" id="username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" minlength="6"
+            title="Must contain at least one number and one letter, and at least 6 or more characters" required>
+          <small>Username must have at least 6 characters and contain at least one number and one letter.</small>
+    
+          <label for="birthdate">Birthdate:</label>
+          <input type="date" id="birthdate" required>
+    
+          <label for="grade">Grade:</label>
+          <select id="grade" required>
+            <option value="" disabled selected>Select your grade</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+    
+          <label for="country">Country:</label>
+          <select id="country" required>
+            <option value="" disabled selected>Select your country</option>
+            <option value="us">United States</option>
+            <option value="za">South Africa</option>
+            <option value="ng">Nigeria</option>
+            <option value="sz">Swati</option>
+            <option value="cn">China</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+    
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" required>
+    
+          <!-- Common fields -->
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+    
+          <small>Password must have a minimum of 6 characters and contain special characters.</small>
+    
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+    
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" required>
+    
+          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
       </div>
-  </div>
-
+    </div>
 
 <header>
   <div class="container header__container">
@@ -152,7 +187,7 @@
   </div> 
 </header>
 
-<section class="Features">
+<section class="Features" id="features">
   <div class="container features__container">
     <div class="features__left">
       <h1>Features</h1>
@@ -283,15 +318,13 @@
       <p>Students</p>
     </article>
 
-    <article class="Personalized_Achievement_Icon">
-      <span class="Personalized_Achievement_Badge">
-        <i class="uil uil-trophy"></i>
-      </span>
-      <h3>20+</h3>
-      <p>Knowledge Check Achievements</p>
-    </article>
-
-    
+      <article class="Personalized_Achievement_Icon">
+        <span class="Personalized_Achievement_Badge">
+          <i class="uil uil-trophy"></i>
+        </span>
+        <h3>20+</h3>
+        <p>Knowledge Check Achievements</p>
+      </article>
     </div>
   </div>
   </div>
@@ -451,12 +484,11 @@
 </div>
 
 
-<!-- Custom JS Link -->
-<script src="main.js"></script>
-<script src="server.js"></script>
-<script src="botscript.js"></script>
-
-
+<!-- Custom JS Link 
+<script src="main.js"></script>-->
+<script type="module" src="server.js"></script>
+<script type="module" src="botscript.js"></script>
+<script type="module" src="main.js"></script>
 
 </body>
 </html>
