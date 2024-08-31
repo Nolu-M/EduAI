@@ -84,6 +84,17 @@ img{
     display: block;
     object-fit: cover;
 }
+
+/* This hides the Google Translate logo image */
+#google_translate_element img {
+    display: none;
+}
+
+/* This hides the "Powered by Google Translate" text */
+.goog-te-gadget span {
+    display: none;
+}
+
 .btn{
     display: inline-block;
     background: var(--color-white);
@@ -95,7 +106,7 @@ img{
 }
 .btn:hover{
     background: transparent;
-    color: var(--second-color);
+    color: var(--text-color);
     border-color: var(--second-color);
 }
 
@@ -284,6 +295,7 @@ small {
 }
 .features__left{
     margin: 1rem 0 3rem;
+    color: var(--color-bg5);
 }
 
 .features__right{
@@ -460,6 +472,7 @@ footer{
     background-color: var(--color-bg2);
     padding-top: 5rem;
     font-size: 0.9rem;
+    color: #fefefe;
 
 }
 
