@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Registration Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-register">&times;</span>
+            <form id="register-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" required>
+                <label for="username">Username:</label>
+                <input type="text" id="username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" minlength="6"
+                    title="Must contain at least one number and one letter, and at least 6 or more characters" required>
+                <small>Username must contain at have at least 6 character.
+                    Must contain special characters.
+                </small>
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" required>
+                <label for="grade">Grade:</label>
+                <select id="grade" required>
+                    <option value="" disabled selected>Select your grade</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+                <label for="country">Country:</label>
+                <select id="country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="us">United States</option>
+                    <option value="za">South Africa</option>
+                    <option value="ng">Nigeria</option>
+                    <option value="sz">Swati</option>
+                    <option value="cn">China</option>
+                    <option value="uk">United Kingdom</option>
+                </select>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <small>Password must have a minimum of 6 charcaters.
+                    Must contain special characters.
+                </small>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" required>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="server.js"></script>
+    <script src="botscript.js"></script>
+
+</body>
+</html>
