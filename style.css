@@ -294,11 +294,15 @@ small {
     gap: 4rem;
 }
 
-.features__container, .resources {
+.resource_features {
     display: grid;
     grid-template-columns: 20% 20% 20%;
     gap: 4rem;
     grid-template-columns: repeat(4, 1fr);
+}
+
+.resource_link {
+    color: var(--text-color)
 }
 
 .features__left{

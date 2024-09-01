@@ -248,3 +248,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === studentRegisterModal) studentRegisterModal.style.display = 'none';
     };
 });
+
+function handleLogin() {
+  // Get the value of the role selection dropdown
+  const role = document.getElementById("role-selection").value;
+
+  // Based on the role, redirect to the appropriate page
+  if (role === "student") {
+    window.location.href = 'studentshome.html'; // Redirect to student page
+  } else if (role === "tutor") {
+    window.location.href = 'betutor.html'; // Redirect to tutor page
+  }
+}

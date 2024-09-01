@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Dashboard</title>
+    <link rel="stylesheet" href="tutorstyle.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
+    <!-- FullCalendar CSS -->
+    <link href='https://unpkg.com/fullcalendar@6.1.6/main.min.css' rel='stylesheet' />
+
+    <!-- FullCalendar JavaScript -->
+    <script src='https://unpkg.com/fullcalendar@6.1.6/main.min.js'></script>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container navbar-left">
+            <a href="betutor.html"><h4>EDU Pal</h4></a>
+            <ul class="nav-menu">
+                <li><a href="#" id="calenderBtn">My Calendar</a></li>
+                <li><a href="#" id="messagesBtn">Messages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+
+
+    <div class="content">
+        <div class="teacher-tools">
+            <h2>Tutor Tools</h2>
+    
+            <div class="Personalized_Achievement_Badges"> 
+                <article class="Personalized_Achievement_Icon" id="resource-library">
+                  <span class="Personalized_Achievement_Badge">
+                    <i class="uil uil-book-open"></i>
+                  </span>
+                  <h3>Resource Library</h3>
+                  <p>Upload teaching materials to share with your students</p>
+                </article>
+    
+                <article class="Personalized_Achievement_Icon" id="assessment-tools">
+                  <span class="Personalized_Achievement_Badge">
+                    <i class="uil uil-trophy"></i>
+                  </span>
+                  <h3>Assessment Tools</h3>
+                  <p>Tools for creating quizzes, assignments for automated grading and feedback</p>
+                </article>
+    
+                <article class="Personalized_Achievement_Icon" id="improvement-management">
+                  <span class="Personalized_Achievement_Badge">
+                    <i class="uil uil-book-open"></i>
+                  </span>
+                  <h3>Improvement Management</h3>
+                  <p>For tutors to improve their tutoring skills</p>
+                </article>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Upload -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Upload Content</h2>
+            <input type="file" id="fileUpload" multiple>
+            <button id="uploadButton">Upload</button>
+        </div>
+    </div>
+    
+
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+        <div class="requests">
+            <h2>Requests</h2>
+            <div class="request-item">
+                <p class="student-name"><strong>Nolu Maxazana</strong></p>
+                <div class="request-grade">Grade: 10</div>
+                <div class="request-subject">Subject: Mathematics</div>
+                <p class="request-date">Requested on: 31 August 2024</p>
+                <div class="button-container">
+                    <button class="accept-btn" onclick="acceptRequest(this)">Accept</button>
+                    <button class="reject-btn" onclick="rejectRequest(this)">Reject</button>
+                </div>
+            </div>
+            <div class="request-item">
+                <p class="student-name"><strong>John Doe</strong></p>
+                <div class="request-grade">Grade: 11</div>
+                <div class="request-subject">Subject: Physical Science</div>
+                <p class="request-date">Requested on: 28 August 2024</p>
+                <div class="button-container">
+                    <button class="accept-btn" onclick="acceptRequest(this)">Accept</button>
+                    <button class="reject-btn" onclick="rejectRequest(this)">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close">&times;</span>
+                <h2>My Calendar</h2>
+
+                <!-- Calendar Section -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <select id="month-select">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8" selected>September</option> <!-- Default is September -->
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                        <span id="year">2024</span>
+                    </div>
+
+                    <div class="calendar-grid" id="calendar-grid">
+                        <!-- Days of the week headers -->
+                        <div class="calendar-day header">Sun</div>
+                        <div class="calendar-day header">Mon</div>
+                        <div class="calendar-day header">Tue</div>
+                        <div class="calendar-day header">Wed</div>
+                        <div class="calendar-day header">Thu</div>
+                        <div class="calendar-day header">Fri</div>
+                        <div class="calendar-day header">Sat</div>
+                        <!-- Calendar days will be injected here -->
+                    </div>
+                </div>
+
+                      <!-- Lessons Section -->
+                      <div id="lessons-section">
+                        <h3>Lessons</h3>
+                        <p>Completed Lessons: <span id="completed-lessons">2</span></p>
+                        <p>Upcoming Lessons: <span id="upcoming-lessons">8</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Availability Buttons Modal -->
+                <div id="availabilityModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <span class="close">&times;</span>
+                            <h3>Select Availability</h3>
+                            <div class="availability-buttons">
+                                <button class="available-btn" onclick="setAvailability(true)">Available</button>
+                                <button class="unavailable-btn" onclick="setAvailability(false)">Unavailable</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+    <footer>
+        <div class="container footer__container">
+          <div class="footer__about">
+            <a href="Home.html" class="footer__logo"><h4>EDU Pal</h4></a>
+            <p>
+              EDU Pal is dedicated to revolutionizing remote learning 
+              for high school students using cutting-edge AI technology.
+            </p>
+          </div>
+    
+          <div class="footer__links">
+            <h4>Permalinks</h4>
+            <ul class="permalinks">
+              <li><a href="Home.html">Home</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="faq.html">FAQS</a></li>
+              <li><a href="Contact us">Contact Us</a></li>
+              
+            </ul>
+        </div>
+    
+        <div class="footer privacy">
+          <h4>Privacy</h4>
+          <ul class="privacy">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Condition</a></li>
+            
+          </ul>
+        </div>
+    
+        <div class="footer__contact">
+          <h4>Contact Us</h4>
+          <p>lethabokwadi@gmail.com
+            molebalengmadimabe@gmail.com
+            thandomandondo1909@gmail
+            nolubabalomaxazana@gmail.com
+          </p>
+          </div>
+    
+            
+            <ul class="footer__socials">
+            
+              <li>
+                <a href="#"><i class="uil uil-facebook-f"></i></a>
+    
+              </li>
+              <li>
+                <a href="#"><i class="uil uil-instagram-alt"></i></a>
+                  
+              </li>
+              <li>
+                <a href="#"><i class="uil uil-twitter"></i></a>
+                  
+              </li>
+              <li>
+                <a href="#"><i class="uil uil-linkedin-alt"></i></a>
+                  
+              </li>
+            </ul>
+    
+            </div>
+      
+    
+          <div class="footer__copyright">
+            <small>Copyright &copy; EDU AI </small>
+          </div>
+        </div>
+      </footer>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <script src="tutorj.js"></script>
+</body>
+</html>
