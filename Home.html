@@ -27,7 +27,7 @@
   <!---header---->
   <nav>
     <div class="container nav__container">
-      <a href="Home.html"><h4>EDU AI</h4></a>
+      <a href="Home.html"><h4>EDU Pal</h4></a>
       <ul class="nav__menu">
         <li><a href="#features">About us</a></li>
         <li><a href="#" id="login-tutor-btn" class="btn">Become a Tutor</a></li>
@@ -84,15 +84,22 @@
       <span class="close-btn" id="close-register-tutor">&times;</span>
       <form id="register-tutor-form">
         <h2>Tutor Registration</h2>
+
         <!-- Tutor-specific fields -->
         <label for="tutor-name">Name:</label>
         <input type="text" id="tutor-name" required>
         <label for="tutor-surname">Surname:</label>
         <input type="text" id="tutor-surname" required>
         <label for="tutor-qualification">Qualification:</label>
-        <input type="text" id="tutor-qualification" required>
-        <label for="tutor-experience">Experience:</label>
-        <input type="text" id="tutor-experience" required>
+        <select id="qualification" required>
+          <option value="" disabled selected>Select your qualification</option>
+          <option value="Matric">Grade 8</option>
+          <option value="Certificate">Grade 9</option>
+          <option value="Diploma">Grade 10</option>
+          <option value="Bachelors">Grade 11</option>
+          <option value="Postgraduate">Grade 12</option>
+        </select>
+    
         <!-- Common fields -->
         <label for="tutor-email">Email:</label>
         <input type="email" id="tutor-email" required>
