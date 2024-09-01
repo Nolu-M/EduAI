@@ -170,7 +170,7 @@ nav button{
 }
 
 .nav__menu a:hover{
-    color: var(--color-bg2)
+    color: var(--color-bg5)
 }
 
 header{
@@ -281,7 +281,7 @@ small {
 /* features */
 .features{
     background: var(--color-bg2);
-    height: 18rem;
+    height: 20rem;
 }
 
 .features h1{
