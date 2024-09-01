@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
     <!-- FullCalendar CSS -->
     <link href='https://unpkg.com/fullcalendar@6.1.6/main.min.css' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 
     <!-- FullCalendar JavaScript -->
     <script src='https://unpkg.com/fullcalendar@6.1.6/main.min.js'></script>
@@ -24,9 +32,216 @@
             <ul class="nav-menu">
                 <li><a href="#" id="calenderBtn">My Calendar</a></li>
                 <li><a href="#" id="messagesBtn">Messages</a></li>
+                <!-- Language -->
+                <li id="google_translate_element"></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container">
+      <div id="chatbot-header" onclick="toggleChatbot()">Chat with EduPal</div>
+      <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Ask a question...">
+        <button onclick="sendMessage()">Send</button>
+        <!--<button id="end-chat-btn" onclick="endChat()">End Chat</button> <!-- End Chat Button -->
+      </div>
+    </div>
+    
+    <!-- JavaScript Code for the Chatbot -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const chatbotBody = document.getElementById('chatbot-body');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const endChatBtn = document.getElementById('end-chat-btn');
+        let lastTopic = '';
+        let lastSubject = '';
+
+        const subjects = {
+          'english': 'English is crucial for communication in many careers, including writing, teaching, and law. What is your average grade in English?',
+          'afrikaans': 'Afrikaans is important in South Africa, especially in fields like education, law, and communication. What is your average grade in Afrikaans?',
+          'mathematics': 'Mathematics is fundamental for careers in engineering, finance, data science, and more. What is your average grade in Mathematics?',
+          'physical science': 'Physical Science is essential for careers in engineering, medicine, and research. What is your average grade in Physical Science?',
+          'life sciences': 'Life Sciences are important for careers in medicine, biology, and environmental science. What is your average grade in Life Sciences?',
+          'accounting': 'Accounting is critical for careers in finance, business, and management. What is your average grade in Accounting?',
+          'geography': 'Geography is valuable for careers in environmental science, urban planning, and geography education. What is your average grade in Geography?',
+          'history': 'History is important for careers in education, research, and heritage management. What is your average grade in History?',
+          'business studies': 'Business Studies is essential for careers in entrepreneurship, management, and marketing. What is your average grade in Business Studies?',
+          'economics': 'Economics is crucial for careers in finance, policy analysis, and consulting. What is your average grade in Economics?',
+          'information technology': 'Information Technology is key for careers in software development, cybersecurity, and IT management. What is your average grade in IT?',
+          'visual arts': 'Visual Arts is important for careers in graphic design, fine arts, and animation. What is your average grade in Visual Arts?',
+          'music': 'Music is vital for careers in performance, music education, and production. What is your average grade in Music?',
+          'life orientation': 'Life Orientation is essential for personal development and understanding social dynamics. How are you performing in Life Orientation?',
+          'tourism': 'Tourism is important for careers in hospitality, travel planning, and tourism management. What is your average grade in Tourism?',
+          'engineering graphics and design': 'EGD is crucial for careers in engineering, architecture, and industrial design. What is your average grade in EGD?',
+        };
+
+        const careerGuidance = {
+          'science': 'Based on your interest in science, you might consider a career in engineering, medicine, environmental science, or research. Would you like to know more about any specific field?',
+          'art': 'If you love art, careers in graphic design, animation, fine arts, or art therapy could be a great fit. Do you have a specific artistic medium or therapy-related area you prefer?',
+          'technology': 'Your interest in technology could lead you to careers in software development, cybersecurity, AI and machine learning, or IT management. Do you want to learn about coding, AI, or other tech skills?',
+          'math': 'With a strength in math, you could excel in finance, data science, actuarial science, or engineering. Would you like to explore career paths in finance, analytics, or engineering?',
+          'literature': 'A passion for literature might lead to careers in writing, publishing, teaching, or literary analysis. Are you interested in creative writing, literary analysis, or perhaps teaching?',
+          'sports': 'If you’re passionate about sports, consider careers in sports management, coaching, physical therapy, or sports journalism. Are you interested in working directly with athletes or in the media side?',
+          'business': 'A knack for business could lead you to entrepreneurship, marketing, management, or business analytics. Would you like to learn more about starting your own business, marketing strategies, or data-driven decision-making?',
+          'social work': 'If you care deeply about helping others, social work, counseling, community service, or human rights advocacy might be the right path. Do you feel drawn to any specific area of social work or advocacy?',
+          'engineering': 'Engineering offers a wide range of opportunities in civil, mechanical, electrical, software, or biomedical engineering. Which type of engineering interests you the most?',
+          'medicine': 'The medical field is vast, including roles like doctors, nurses, pharmacists, researchers, or medical technologists. Are you interested in patient care, research, or a different area within medicine?',
+          'history': 'With an interest in history, careers in education, museum curation, archaeology, or historical research might be appealing. Would you like to learn more about any specific historical era or career path?',
+          'psychology': 'Psychology offers careers in clinical practice, research, counseling, or organizational psychology. Are you interested in mental health, research, or applying psychology in the workplace?',
+          'education': 'A passion for education could lead to careers in teaching, educational technology, administration, or curriculum development. Do you have a specific age group or educational approach in mind?',
+          'law': 'If you’re interested in law, you could pursue a career as a lawyer, paralegal, legal researcher, or in compliance. Would you like to know more about specific areas of law or legal studies?',
+          'environment': 'If you care about the environment, consider careers in environmental science, conservation, policy, or sustainable business practices. Are you interested in science, advocacy, or business-related environmental work?',
+          'economics': 'Economics can lead to careers in finance, policy analysis, academia, or economic consulting. Would you like to explore economic theory, financial markets, or policy work?',
+          'languages': 'An interest in languages might lead to careers in translation, interpretation, teaching, or linguistics. Do you have a specific language or career path in mind?'
+        };
+
+        const generalAdvice = {
+          'study tips': 'create a study schedule, use active learning techniques, practice past papers, stay organized, focus on understanding concepts, take care of their physical and mental health, use memory aids, set specific goals, limit distractions, review regularly, and seek help when needed to improve academic performance.',
+          'strengths': 'It’s important to identify your strengths. What subjects do you excel at or enjoy the most?',
+          'interests': 'Your interests play a big role in career choices. What activities or subjects are you passionate about?',
+          'skills': 'Building skills is key to career success. Would you like advice on developing specific skills for your future career?',
+          'education': 'Your education is the foundation of your career. Are you thinking about college, trade school, or another form of education?',
+          'confidence': 'Confidence is crucial in any career. Believing in yourself is the first step to success. Would you like tips on building self-confidence?',
+          'work-life balance': 'Work-life balance is important for long-term success. Would you like advice on managing your time effectively?',
+          'job market': 'Understanding the job market is key. Are you curious about which fields are in demand right now?',
+          'networking': 'Networking can open doors in your career. Would you like tips on how to build a strong professional network?',
+          'internships': 'Internships provide valuable experience. Would you like advice on finding and applying for internships?',
+          'resume': 'A strong resume can make a big difference. Would you like tips on crafting a resume that stands out?',
+          'interviews': 'Interviews are critical in the job process. Would you like advice on how to prepare for job interviews?'
+        };
+
+        function getSubjectAdvice(message) {
+          const lowerCaseMessage = message.toLowerCase();
+
+          // Check if the user is done with the chat
+          if (lowerCaseMessage.includes("thank you") || lowerCaseMessage.includes("done") || lowerCaseMessage.includes("finished")) {
+            clearChat();
+            return "You're welcome! The chat has been cleared. Feel free to reach out if you have more questions.";
+          }
+
+          // Check for yes or no responses
+          if (lowerCaseMessage === "yes") {
+            return handleYesResponse();
+          } else if (lowerCaseMessage === "no") {
+            return handleNoResponse();
+          }
+
+          // Subject and grade handling
+          for (let key in subjects) {
+            if (lowerCaseMessage.includes(key)) {
+              lastSubject = key;
+              lastTopic = 'grade';
+              return subjects[key];
+            }
+          }
+
+          // Handle grade input
+          if (lastTopic === 'grade' && !isNaN(lowerCaseMessage)) {
+            return evaluatePerformance(lastSubject, parseFloat(lowerCaseMessage));
+          }
+
+          // General topic handling
+          for (let key in careerGuidance) {
+            if (lowerCaseMessage.includes(key)) {
+              lastTopic = key;
+              return careerGuidance[key];
+            }
+          }
+          for (let key in generalAdvice) {
+            if (lowerCaseMessage.includes(key)) {
+              lastTopic = key;
+              return generalAdvice[key];
+            }
+          }
+
+          return "I’m here to help! Can you tell me more about your interests, subjects, or what you’d like to know?";
+        }
+
+        function evaluatePerformance(subject, grade) {
+          lastTopic = '';
+          lastSubject = '';
+          if (grade >= 75) {
+            return `Great job in ${subject}! With a strong performance like this, you have many career options available. Would you like advice on related careers?`;
+          } else if (grade >= 50) {
+            return `You're doing well in ${subject}. Keep it up! Consider focusing on areas that are challenging for you. Would you like tips on improving in ${subject}?`;
+          } else {
+            return `It seems ${subject} is a bit challenging for you. Don't worry, with some effort, you can improve. Would you like some strategies to boost your grades in ${subject}?`;
+          }
+        }
+
+        function handleYesResponse() {
+          if (lastTopic && lastSubject) {
+            return `Let's discuss how you can improve your performance in ${lastSubject}. What areas do you find most challenging?`;
+          }
+          if (lastSubject && subjects[lastSubject]) {
+            return `Sure! I can help you explore career options related to ${lastSubject}. Are you interested in specific careers or fields?`;
+          }
+          if (lastTopic && careerGuidance[lastTopic]) {
+            return `Great! Let's dive deeper into ${lastTopic}. What specific aspect would you like to explore further?`;
+          }
+          if (lastTopic && generalAdvice[lastTopic]) {
+            return `Sure! What would you like to know about ${lastTopic}? I can provide more details or tips.`;
+          }
+          return "I'm glad you're interested! What would you like to explore next?";
+        }
+
+        function handleNoResponse() {
+          if (lastTopic) {
+            return `No problem! If there's another subject, topic, or question on your mind, feel free to ask.`;
+          }
+          return "That's okay! If you have another question or topic in mind, I'm here to help.";
+        }
+
+        function sendMessage() {
+          const userMessage = chatbotInput.value.trim();
+          if (!userMessage) return;
+
+          // Display user's message
+          displayMessage('User', userMessage);
+
+          // Get the chatbot response
+          const botResponse = getSubjectAdvice(userMessage);
+          displayMessage('EduPal', botResponse);
+
+          // Clear the input field
+          chatbotInput.value = '';
+        }
+
+        function displayMessage(sender, message) {
+          const messageElement = document.createElement('div');
+          messageElement.className = 'chatbot-message';
+          messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+          chatbotMessages.appendChild(messageElement);
+          chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        function clearChat() {
+          console.log("Clearing chat..."); // Log to check if function is called
+          chatbotMessages.innerHTML = ''; // Clear the chat history
+        }
+
+        function endChat() {
+          console.log("End chat button clicked"); // Log to check if button click is detected
+          clearChat();
+          displayMessage('EduAI', "The chat has been cleared. If you need further assistance, feel free to ask!");
+        }
+
+        document.querySelector('button[onclick="sendMessage()"]').addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', function (event) {
+          if (event.key === 'Enter') {
+            sendMessage();
+          }
+        });
+      });
+
+      function toggleChatbot() {
+        const chatbotBody = document.getElementById('chatbot-body');
+        chatbotBody.style.display = chatbotBody.style.display === 'none' ? 'block' : 'none';
+      }
+    </script>
 
     <!-- Main Content -->
 
@@ -175,7 +390,7 @@
    
 
 
-    <footer>
+    <footer style="color: white;">
         <div class="container footer__container">
           <div class="footer__about">
             <a href="Home.html" class="footer__logo"><h4>EDU Pal</h4></a>

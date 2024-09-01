@@ -10,23 +10,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="courses.css">
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 </head>
 <body>
   <nav>
     <div class="container nav__container">
-      <a href="Home.html"><h4>Back</h4></a>
+      <a href="Home.html"><img src="/images/logo.jpg" style="width: 200px;"></a>
       <ul class="nav__menu">
-        <li><a href="Home.html">Home</a></li>
         <li><a href="courses.html">Subjects</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="courses.html">Subjects</a></li>
-        <li><a href="./Home.html" id="login-btn">Log out</a></li>
+        <li><a href="./Home.html" id="login-btn" class="btn">Log out</a></li>
+        <!-- Language -->
+        <li id="google_translate_element"></li>
       </ul>
     </div>
   </nav>
 
   <section id="performance">
-    <h2>Performance Tracker</h2>
+    <h2 style="color: white;">Performance Tracker</h2>
     <p>Your performance over time will be displayed here.</p>
     <img src="./images/dashboard.png" alt="Performance Chart" class="performance-chart">
   </section>
@@ -34,7 +42,7 @@
   <footer>
     <div class="container footer__container">
       <div class="footer__about">
-        <a href="Home.html" class="footer__logo"><h4>EDU AI</h4></a>
+        <a href="Home.html" class="footer__logo"><h4>EDU PAL</h4></a>
         <p>
           EDU AI is dedicated to revolutionizing remote learning 
           for high school students using cutting-edge AI technology.
