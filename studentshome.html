@@ -12,7 +12,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
-    
+    <link rel="stylesheet" href="courses.css">
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -23,6 +24,298 @@
     </script>
 </head>
 <body>
+    <!---header---->
+    <nav>
+        <div class="container nav__container">
+            <a href="Home.html">
+                <h4>EDU PAL</h4>
+            </a>
+            <ul class="nav__menu">
+                <li><a href="#features">About us</a></li>
+                <li><a href="#" id="login-tutor-btn" class="btn">Become a Tutor</a></li>
+                <li><a href="#" id="register-student-btn" class="btn">Students</a></li>
     
+                <!-- Language -->
+                <li id="google_translate_element"></li>
+    
+            </ul>
+            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+    <!-- Chatbot -->
+    <div id="chatbot-container">
+        <div id="chatbot-header" onclick="toggleChatbot()">Chat with EduAI</div>
+        <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Ask a question...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <!--end-->
+
+    <h1>Hello, Nolubabalo!</h1>
+    <h2>Subjects</h2>
+    
+    <section id="modules">
+        <h2>Explore Your Subjects</h2>
+        <div class="module-list">
+            <div class="module-card" onclick="toggleDetails(this)">
+                <img src="./images/account.png" alt="Accounting">
+                <h3>Accounting</h3>
+                <p>Learn the basics of accounting and financial management.</p>
+                <div class="progress-bar">
+                    <div style="width: 70%;"></div>
+                </div>
+                <button>Start/Resume</button>
+                <div class="module-details">
+                    <h4>Modules</h4>
+                    <ul>
+                        <li onclick="toggleSubtopics(this)">
+                            Introduction to Accounting
+                            <span class="progress-status">[70% Complete]</span>
+                            <div class="subtopics">
+                                <a href="#">Lesson 1: Basics</a>
+                                <a href="#">Lesson 2: Financial Statements</a>
+                                <a href="#">Quiz 1</a>
+                            </div>
+                        </li>
+                        <li onclick="toggleSubtopics(this)">
+                            Advanced Accounting Techniques
+                            <span class="progress-status">[30% Complete]</span>
+                            <div class="subtopics">
+                                <a href="#">Lesson 1: Cost Accounting</a>
+                                <a href="#">Lesson 2: Taxation</a>
+                                <a href="#">Quiz 2</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="module-card" onclick="toggleDetails(this)">
+                <img src="./images/physics.png" alt="Physical Science">
+                <h3>Physical Science</h3>
+                <p>Explore the principles of physics and chemistry.</p>
+                <div class="progress-bar">
+                    <div style="width: 50%;"></div>
+                </div>
+                <button>Start/Resume</button>
+                <div class="module-details">
+                    <h4>Modules</h4>
+                    <ul>
+                        <li onclick="toggleSubtopics(this)">
+                            Basic Physics
+                            <span class="progress-status">[50% Complete]</span>
+                            <div class="subtopics">
+                                <a href="#">Lesson 1: Motion</a>
+                                <a href="#">Lesson 2: Forces</a>
+                                <a href="#">Quiz 1</a>
+                            </div>
+                        </li>
+                        <li onclick="toggleSubtopics(this)">
+                            Chemistry Fundamentals
+                            <span class="progress-status">[20% Complete]</span>
+                            <div class="subtopics">
+                                <a href="#">Lesson 1: Atomic Structure</a>
+                                <a href="#">Lesson 2: Chemical Reactions</a>
+                                <a href="#">Quiz 2</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more module-cards as needed -->
+        </div>
+    
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <div class="quick-item">
+                <a href="#">Top Modules</a>
+            </div>
+            <div class="quick-item">
+                <a href="#">Upcoming Lessons/Exams</a>
+            </div>
+        </div>
+    
+        <div class="filters">
+            <h3>Filters</h3>
+            <select>
+                <option value="difficulty">Filter by Difficulty</option>
+                <option value="topic">Filter by Topic</option>
+                <option value="time">Filter by Time Required</option>
+            </select>
+            <div class="quick-item">
+                <a href="#">Bookmarks</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer__container">
+            <div class="footer__about">
+                <a href="Home.html" class="footer__logo">
+                    <h4>EDU AI</h4>
+                </a>
+                <p>
+                    EDU AI is dedicated to revolutionizing remote learning
+                    for high school students using cutting-edge AI technology.
+                </p>
+            </div>
+    
+            <div class="footer__links">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer privacy">
+                <h4>Privacy</h4>
+                <ul class="privacy">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer__contact">
+                <h4>Contact Us</h4>
+                <p>
+                    lethabọwọ@gmail.com<br>
+                    molebalengmadimabe@gmail.com<br>
+                    thandomandondo1909@gmail.com<br>
+                    nolubabalomaxazana@gmail.com
+                </p>
+            </div>
+    
+            <ul class="footer__socials">
+                <li>
+                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-instagram-alt"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-linkedin-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__copyright">
+            <small>&copy; 2024 EDU AI</small>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleDetails(card) {
+            const details = card.querySelector('.module-details');
+            if (details.style.display === "block") {
+                details.style.display = "none";
+            } else {
+                details.style.display = "block";
+            }
+        }
+
+        function toggleSubtopics(module) {
+            const subtopics = module.querySelector('.subtopics');
+            if (subtopics.style.display === "block") {
+                subtopics.style.display = "none";
+            } else {
+                subtopics.style.display = "block";
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container footer__container">
+            <div class="footer__about">
+                <a href="Home.html" class="footer__logo">
+                    <h4>EDU PAL</h4>
+                </a>
+                <p>
+                    EDU AI is dedicated to revolutionizing remote learning
+                    for high school students using cutting-edge AI technology.
+                </p>
+            </div>
+    
+            <div class="footer__links">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="faq.html">FAQS</a></li>
+                    <li><a href="Contact us">Contact Us</a></li>
+    
+                </ul>
+            </div>
+    
+            <div class="footer privacy">
+                <h4>Privacy</h4>
+                <ul class="privacy">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+    
+                </ul>
+            </div>
+    
+            <div class="footer__contact">
+                <h4>Contact Us</h4>
+                <p>lethabokwadi@gmail.com
+                    molebalengmadimabe@gmail.com
+                    thandomandondo1909@gmail
+                    nolubabalomaxazana@gmail.com
+                </p>
+            </div>
+    
+    
+            <ul class="footer__socials">
+    
+                <li>
+                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+    
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-instagram-alt"></i></a>
+    
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-twitter"></i></a>
+    
+                </li>
+                <li>
+                    <a href="#"><i class="uil uil-linkedin-alt"></i></a>
+    
+                </li>
+            </ul>
+    
+        </div>
+    
+    
+        <div class="footer__copyright">
+            <small>Copyright &copy; EDU AI </small>
+        </div>
+        </div>
+    </footer>
+    
+    
+    
+    <!-- Dashboard Section -->
+    <section id="dashboard" style="display:none;">
+        <div class="container">
+            <h2>Welcome to your Dashboard</h2>
+            <p>Here you can find your courses, resources, and other important information.</p>
+            <!-- Add dashboard content here -->
+        </div>
+
+
+    <!-- Custom JS Link-->
+    <script src="main.js"></script>
+    <script type="module" src="server.js"></script>
+    <script type="module" src="botscript.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
