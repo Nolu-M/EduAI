@@ -6,23 +6,35 @@
         <title>Resources</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900.&display=swap"
+          rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="about.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+          }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+        
     
     </head>
     <body>
         <nav>
             <div class="container nav__container">
-              <a href="Home.html"><h4>EDU AI</h4></a>
+              <a href="Home.html"><h4>EDU Pal</h4></a>
               <ul class="nav__menu">
-                <li><a href="Home.html">Home</a></li>
                 <li><a href="courses.html">Subjects</a></li>
-                <li><a href="resources.html">Resources</a></li>
                 <li><a href="tutor.html">Book a Tutor</a></li>
-                <li><a href="about-us.html">About us</a></li>
-                <li><a href="#" id="login-btn">Log in</a></li>
-                <li><a href="#" id="register-btn" class="btn">Register</a></li>
-                
+                <li><a href="Home.html" id="btn" class="btn">Log out</a></li>
+                <!-- Language -->
+                <li id="google_translate_element"></li>
               </ul>
               <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
               <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
@@ -39,73 +51,43 @@
           </div>
           <!--end-->
         
-        
-        <div id="login-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" id="close-login">&times;</span>
-                <form id="login-form">
-                    <label for="login-username">Email, Username, or Phone Number:</label>
-                    <input type="text" id="login-username" required>
-                    <label for="login-password">Password:</label>
-                    <input type="password" id="login-password" required>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <a href="#" id="forgot-password">Forgot Password?</a>
-                </form>
-            </div>
-          </div>
-          
-             
-              <!-- Registration Modal -->
-              <div id="register-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn" id="close-register">&times;</span>
-                    <form id="register-form">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" required>
-                        <label for="surname">Surname:</label>
-                        <input type="text" id="surname" required>
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" minlength="6" title="Must contain at least one number and one letter, and at least 6 or more characters" required>
-                        <small>Username must contain at have at least 6 character.
-                          Must contain special characters.
-                        </small>
-                        <label for="birthdate">Birthdate:</label>
-                        <input type="date" id="birthdate" required>
-                        <label for="grade">Grade:</label>
-                        <select id="grade" required>
-                            <option value="" disabled selected>Select your grade</option>
-                            <option value="8">Grade 8</option>
-                            <option value="9">Grade 9</option>
-                            <option value="10">Grade 10</option>
-                            <option value="11">Grade 11</option>
-                            <option value="12">Grade 12</option>
-                        </select>
-                        <label for="country">Country:</label>
-                        <select id="country" required>
-                            <option value="" disabled selected>Select your country</option>
-                            <option value="us">United States</option>
-                            <option value="za">South Africa</option>
-                            <option value="ng">Nigeria</option>
-                            <option value="sz">Swati</option>
-                            <option value="cn">China</option>
-                            <option value="uk">United Kingdom</option>
-                        </select>
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" required>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" required>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" required>
-                        <small>Password must have a minimum of 6 charcaters.
-                          Must contain special characters.
-                        </small>
-                        <label for="confirm-password">Confirm Password:</label>
-                        <input type="password" id="confirm-password" required>
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </form>
-                </div>
-            </div>
-
+            
+            <section class="Features" id="features">
+              <div class="container features__container resources">
+                <article class="features">
+                  <span class="features__icon"><i class="uil uil-book-reader"></i></span>
+                  <h5>Past Papers</h5>
+                  <p>
+                    Test and prepare yourself with the available past papers.
+                  </p>
+                </article>
+            
+                <article class="features">
+                  <span class="features__icon"><i class="uil uil-presentation-check"></i></span>
+                  <h5>Videos</h5>
+                  <p>
+                    Watch informative videos on different subjects.
+                  </p>
+                </article>
+            
+                <article class="features">
+                  <span class="features__icon"><i class="uil uil-presentation-edit"></i></span>
+                  <h5>Quizzes</h5>
+                  <p>
+                    Test your knowledge on various subjects using fun quizzes.
+                  </p>
+                </article>
+            
+                <article class="features">
+                  <span class="features__icon"><i class="uil uil-award"></i></span>
+                  <h5>Career Guidance</h5>
+                  <p>
+                    Get the help that you need to plan for your future.
+                  </p>
+                </article>
+              </div>
+              </div>
+            </section>
             <footer>
                 <div class="container footer__container">
                   <div class="footer__about">
@@ -120,8 +102,8 @@
                     <h4>Permalinks</h4>
                     <ul class="permalinks">
                       <li><a href="Home.html">Home</a></li>
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="faq.html">FAQS</a></li>
+                      <li><a href="#features">About Us</a></li>
+                      <li><a href="#faqs">FAQS</a></li>
                       <li><a href="Contact us">Contact Us</a></li>
                       
                     </ul>
@@ -187,8 +169,8 @@
             
             
             <!-- Custom JS Link -->
-            <script src="main.js"></script>
-            <script src="server.js"></script>
-            <script src="botscript.js"></script>            
+            <script type="module" src="main.js"></script>
+            <script type="module" src="server.js"></script>
+            <script type="module" src="botscript.js"></script>            
     </body>
 </html>
